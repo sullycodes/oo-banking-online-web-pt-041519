@@ -20,20 +20,20 @@ class Transfer
     end
   end
   
-  # def execute_transaction
-  #   # if @sender.balance == 0 || @sender.status == "closed" 
-  #   if @sender.valid? 
-  #     @status = "rejected"
-  #     return "Transaction rejected. Please check your account balance."
-  #   else
-  #     if @@executed_transactions.none? { |e| e == self }  
-  #       @sender.balance = @sender.balance - @amount
-  #       @receiver.balance = @receiver.balance + @amount
-  #       @status = "complete"
-  #       @@executed_transactions << self
-  #     end
-  #   end
-  # end
+  def execute_transaction
+    # if @sender.balance == 0 || @sender.status == "closed" 
+    if @sender.valid? 
+      @status = "rejected"
+      return "Transaction rejected. Please check your account balance."
+    else
+      if @@executed_transactions.none? { |e| e == self }  
+        @sender.balance = @sender.balance - @amount
+        @receiver.balance = @receiver.balance + @amount
+        @status = "complete"
+        @@executed_transactions << self
+      end
+    end
+  end
   
   # def execute_transaction
   #   if @sender.valid? 
