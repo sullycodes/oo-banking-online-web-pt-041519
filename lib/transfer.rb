@@ -35,19 +35,19 @@ class Transfer
   #   end
   # end
   
-  def execute_transaction
-    if @sender.valid? 
-      if @@executed_transactions.none? { |e| e == self }  
-        @sender.balance = @sender.balance - @amount
-        @receiver.balance = @receiver.balance + @amount
-        @status = "complete"
-      end
-    else
-      @@executed_transactions << self
-      @status = "rejected"
-      return "Transaction rejected. Please check your account balance." 
-    end
-  end
+  # def execute_transaction
+  #   if @sender.valid? 
+  #     if @@executed_transactions.none? { |e| e == self }  
+  #       @sender.balance = @sender.balance - @amount
+  #       @receiver.balance = @receiver.balance + @amount
+  #       @status = "complete"
+  #     end
+  #   else
+  #     @@executed_transactions << self
+  #     @status = "rejected"
+  #     return "Transaction rejected. Please check your account balance." 
+  #   end
+  # end
   
   
   def reverse_transfer
